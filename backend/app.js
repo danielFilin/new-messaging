@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const keys = require('./backend/config/keys');
+const keys = require('./config/keys');
 const path = require('path');
 
-const messageRoutes = require('./backend/routes/messages');
-const userRoutes = require('./backend/routes/user');
+const messageRoutes = require('./routes/messages');
+const userRoutes = require('./routes/user');
 
 
 mongoose.set('useNewUrlParser', true);
@@ -36,10 +36,10 @@ app.use( (req, res, next) => {
 app.use(messageRoutes);
 app.use(userRoutes);
 
-app.use(express.static(__dirname + './dist/messages'));
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + './dist/messages/index.html'))
-})
+app.use(express.static(__dirname + '/dist/messages'));
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+
+    '/dist/messages/index.html'));});
 
 const port = process.env.PORT || 5000;
 
