@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const keys = require('./config/keys');
+const keys = require('../backend/config/keys');
 const path = require('path');
 
-const messageRoutes = require('./routes/messages');
-const userRoutes = require('./routes/user');
+const messageRoutes = require('../backend/routes/messages');
+const userRoutes = require('../backend/routes/user');
 
 
 mongoose.set('useNewUrlParser', true);
