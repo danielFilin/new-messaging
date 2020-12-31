@@ -37,7 +37,7 @@ export class AuthService {
       email,
       password
     }
-    this.http.post<{}>(BACKEND_URL + `signup`, authData)
+    this.http.post<{}>( `signup`, authData)
       .subscribe((responseData) => {
         console.log(responseData);
         this.router.navigate(['/']);
@@ -52,7 +52,7 @@ export class AuthService {
       email,
       password
     }
-    this.http.post<{token: string, expiresIn: number, userId: string, errors: string}>(BACKEND_URL + `login`, authData)
+    this.http.post<{token: string, expiresIn: number, userId: string, errors: string}>( `login`, authData)
       .subscribe((responseData) => {
         this.token = responseData.token;
         if (this.token) {
